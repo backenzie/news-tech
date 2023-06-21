@@ -1,7 +1,11 @@
+import { Button } from "Components/Button";
 import styles from "./NotFound.module.css";
 import error404 from "assets/erro_404.png";
+import { useNavigate } from "react-router-dom";
 
 export const NotFound = () => {
+  const navigate = useNavigate();
+
   return (
     <>
       <div className={styles.conteudoContainer}>
@@ -17,8 +21,8 @@ export const NotFound = () => {
           Aguarde uns instantes e recarregue a página, ou volte para a página
           inicial.
         </p>
-        <div className={styles.botaoContainer}>
-          <button>Voltar</button>
+        <div onClick={() => navigate(-1)} className={styles.botaoContainer}>
+          <Button tamanho="lg">Voltar</Button>
         </div>
         <img
           className={styles.imagemCachorro}
